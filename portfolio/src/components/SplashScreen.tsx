@@ -27,10 +27,10 @@ export function SplashScreen({ children }: { children: React.ReactNode }) {
       >
         <div className="text-center px-6">
           <EncryptedText
-            text="Hello, I'm Chirag."
-            encryptedClassName="text-neutral-600"
+            text="Welcome to the Matrix, Neo."
+            encryptedClassName="text-neutral-500"
             revealedClassName="text-white"
-            revealDelayMs={60}
+            revealDelayMs={50}
             scrambleSpeed={40}
             onComplete={handleComplete}
           />
