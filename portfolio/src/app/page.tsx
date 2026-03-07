@@ -1,3 +1,5 @@
+import { MatrixIntro } from "@/components/MatrixIntro";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
@@ -56,6 +58,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Matrix Intro */}
+      <MatrixIntro />
     </div>
   );
 }
