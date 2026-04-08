@@ -998,8 +998,36 @@ section {
    FOOTER
    ============================================ */
 .footer {
-    padding: 2rem 0;
+    position: relative;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--border-color);
+    background: linear-gradient(120deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2), rgba(102, 126, 234, 0.2));
+    background-size: 200% 200%;
+    animation: footerGradient 12s ease infinite;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(102, 126, 234, 0.35), transparent 55%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at bottom, rgba(118, 75, 162, 0.3), transparent 60%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
 }
 
 .footer-content {
@@ -1016,6 +1044,18 @@ section {
 .footer-socials {
     display: flex;
     gap: 0.75rem;
+}
+
+@keyframes footerGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Animated Tooltip Social Icons */
