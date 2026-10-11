@@ -163,12 +163,21 @@ function initAnimations() {
     // --- Hero entrance sequence ---
     const heroName = document.querySelector('.hero-name');
 
+    gsap.to('.hero-portrait', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: 'back.out(1.45)',
+    });
+
     // Greeting fades in first
     gsap.to('.hero-greeting', {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: 'power3.out',
+        delay: 0.12,
     });
 
     // Hero name decrypts character-by-character
@@ -303,12 +312,12 @@ function initAnimations() {
         },
     });
 
-    // --- Expandable project cards (staggered) ---
-    gsap.from('.expandable-card', {
+    // --- Interactive project cards (staggered) ---
+    gsap.from('.project-showcase-card', {
         opacity: 0,
-        x: -40,
-        duration: 0.6,
-        stagger: 0.15,
+        y: 45,
+        duration: 0.8,
+        stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: {
             trigger: '.projects-list',
@@ -421,18 +430,25 @@ function initAnimations() {
    ============================================ */
 const projectData = [
     {
-        title: 'NE Flappy Bird',
-        description: 'A NeuroEvolution driven self-learning version of the classic game Flappy Bird',
-        tag: 'JavaScript',
-        link: 'https://github.com/crudybagger/NeuroEvolution-Flappy-Bird',
-        content: 'This project implements a NeuroEvolution approach to train AI agents to play Flappy Bird autonomously. Using neural networks combined with genetic algorithms, the birds evolve over multiple generations — learning optimal flight strategies through natural selection. Each generation produces smarter birds that navigate pipes more effectively, demonstrating the power of evolutionary computation in game AI.',
+        title: 'Human–Robot Teleoperation',
+        description: 'Turning human movement into intuitive, real-time robot control',
+        tag: 'ROS 2 · C++ · Xsens',
+        link: '#',
+        content: 'A research system for human–robot teleoperation built around real-time motion capture, calibration, coordinate transforms, and ROS 2 communication. The work focuses on making robot control feel direct and understandable while keeping the underlying pipeline reliable enough for live experiments.',
     },
     {
-        title: 'Personal Website',
-        description: 'A professional portfolio crafted with modern web technologies',
-        tag: 'Bootstrap + CSS',
+        title: 'Sign Language Assistive System',
+        description: 'Gesture recognition connected with speech and text in one pipeline',
+        tag: 'OpenCV · MediaPipe · ML',
         link: '#',
-        content: 'A responsive personal portfolio website showcasing projects, skills, and professional experience. Built with Bootstrap for layout and custom CSS for styling, the site features clean typography, modern design patterns, and a fully responsive layout that works across all devices.',
+        content: 'A computer-vision assistive system that recognizes hand gestures and connects the result to speech and text output. The project combines landmark tracking, gesture classification, and interface design into a responsive workflow intended to make communication more accessible.',
+    },
+    {
+        title: 'Parking Digital Twin',
+        description: 'A live cloud model for parking occupancy and predictive insight',
+        tag: 'ESP8266 · MQTT · AWS',
+        link: '#',
+        content: 'An IoT parking system that streams occupancy signals from connected sensors through MQTT into an AWS-backed digital twin. It provides a live view of space availability and creates a foundation for monitoring patterns and predicting demand.',
     },
 ];
 
@@ -466,7 +482,7 @@ function closeCardModal() {
 }
 
 // Open on card click
-document.querySelectorAll('.expandable-card').forEach((card) => {
+document.querySelectorAll('.project-showcase-card').forEach((card) => {
     card.addEventListener('click', () => {
         openCardModal(parseInt(card.dataset.index, 10));
     });

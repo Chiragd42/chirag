@@ -312,6 +312,33 @@ img {
     padding: 0 2rem;
 }
 
+.hero-portrait {
+    position: relative;
+    width: clamp(190px, 20vw, 240px);
+    aspect-ratio: 1;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.86);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38), 0 0 42px rgba(231, 110, 29, 0.12);
+}
+
+.hero-portrait::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 62%, rgba(5, 7, 12, 0.22));
+    pointer-events: none;
+}
+
+.hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 27%;
+}
+
 .hero-greeting {
     font-size: 1.125rem;
     color: var(--text-secondary);
@@ -1137,6 +1164,11 @@ section {
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+    .hero-portrait {
+        width: 170px;
+        margin-bottom: 1.15rem;
+    }
+
     .nav-links {
         display: none;
     }
@@ -1208,6 +1240,15 @@ section {
 }
 
 @media (max-width: 480px) {
+    .hero-portrait {
+        width: 148px;
+        margin-bottom: 0.9rem;
+    }
+
+    .hero-greeting {
+        margin-bottom: 0.65rem;
+    }
+
     .container {
         padding: 0 1.25rem;
     }
@@ -1224,4 +1265,125 @@ section {
     .quote-section {
         padding: 4rem 0;
     }
+}
+
+/* ============================================
+   INTERACTIVE PROJECT SHOWCASE
+   ============================================ */
+.project-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.project-showcase-card {
+    appearance: none;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    color: var(--text-primary);
+    text-align: left;
+    font: inherit;
+    background: #101217;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    cursor: none;
+    transition: transform .45s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s;
+}
+
+.project-showcase-card:hover,
+.project-showcase-card:focus-visible {
+    transform: translateY(-8px);
+    border-color: rgba(102,126,234,.58);
+    box-shadow: 0 28px 70px rgba(0,0,0,.28);
+    outline: none;
+}
+
+.project-showcase-wide {
+    grid-column: 1 / -1;
+    grid-template-columns: 1.45fr 1fr;
+    grid-template-rows: none;
+}
+
+.project-visual {
+    position: relative;
+    display: block;
+    height: 430px;
+    overflow: hidden;
+    color: #7f91a6;
+    background: #0c0e13;
+}
+
+.project-showcase-wide .project-visual { height: 520px; }
+.project-visual > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.capture-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(102,126,234,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(102,126,234,.09) 1px,transparent 1px); background-size: 54px 54px; }
+.teleop-visual > svg { inset: 5%; width: 90%; height: 90%; }
+.pose-human { animation: humanShift 5s ease-in-out infinite; transform-origin: 205px 250px; }
+.pose-robot { animation: robotShift 5s .25s ease-in-out infinite; transform-origin: 575px 285px; }
+.data-stream { animation: dataFlow 2s linear infinite; }
+.visual-readout { position: absolute; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; display: flex; align-items: center; gap: .75rem; font-size: .68rem; letter-spacing: .12em; }
+.visual-readout b { color: #fff; font-weight: 500; }
+.visual-readout i { position: relative; flex: 1; height: 1px; overflow: hidden; background: var(--accent-1); }
+.visual-readout i::after { content: ''; position: absolute; inset: 0; background: #fff; transform: translateX(-100%); animation: readout 2s infinite; }
+.hand-visual > svg { inset: 10%; width: 80%; height: 80%; }
+.scan { position: absolute; z-index: 2; left: 8%; right: 8%; top: 15%; height: 1px; background: var(--accent-1); box-shadow: 0 0 28px 7px rgba(102,126,234,.2); animation: scan 4s ease-in-out infinite; }
+.confidence { position: absolute; right: 1.5rem; bottom: 1.5rem; font-size: .68rem; letter-spacing: .1em; color: var(--text-secondary); }
+.confidence b { margin-left: .6rem; color: #8fa3ff; font-weight: 500; }
+.parking-map { position: absolute; z-index: 1; left: 10%; right: 10%; bottom: 10%; display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; transform: perspective(700px) rotateX(50deg); }
+.parking-map > i { position: relative; height: 90px; border: 1px solid #485261; }
+.parking-map .busy::after { content: ''; position: absolute; inset: 18px 30%; border-radius: 6px; background: #657084; box-shadow: 0 0 20px rgba(102,126,234,.14); }
+.parking-map .free { border-color: #8798ff; animation: freeSlot 3s infinite; }
+.cloud-node { position: absolute; z-index: 2; top: 15%; left: 50%; display: grid; place-items: center; width: 100px; height: 62px; border: 1px solid #556071; border-radius: 50%; transform: translateX(-50%); color: #aab5ff; font-size: .72rem; letter-spacing: .08em; }
+.cloud-node i { position: absolute; top: 10px; right: 11px; width: 7px; height: 7px; border-radius: 50%; background: #75f0bd; box-shadow: 0 0 12px #75f0bd; }
+
+.project-showcase-info { display: flex; flex-direction: column; padding: 2.25rem; }
+.project-eyebrow { margin-bottom: 2rem; color: #8fa3ff; font-size: .68rem; letter-spacing: .1em; }
+.project-showcase-info > strong { margin-bottom: 1.25rem; font-size: clamp(1.8rem,3.4vw,3.25rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 500; }
+.project-summary { max-width: 28rem; color: var(--text-secondary); font-size: .9rem; line-height: 1.75; }
+.project-showcase-footer { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border-color); color: #a2a2a7; font-size: .68rem; letter-spacing: .08em; }
+.project-showcase-footer i { color: #8fa3ff; font-size: 1.55rem; font-style: normal; transition: transform .3s; }
+.project-showcase-card:hover .project-showcase-footer i { transform: translate(5px,-5px); }
+
+/* ============================================
+   OPEN CHANNEL
+   ============================================ */
+.open-channel { min-height: 88vh; padding: 7rem 0 2.5rem; background: #f0f0ec; color: #0a0a0a; }
+.open-channel-inner { min-height: calc(88vh - 9.5rem); display: flex; flex-direction: column; }
+.open-channel-label { color: #697078; font-size: .7rem; letter-spacing: .12em; }
+.open-channel-copy { margin: auto 0; }
+.open-channel-copy > p { margin-bottom: 2rem; font-size: .8rem; letter-spacing: .04em; }
+.open-channel-copy > a { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 4px solid currentColor; font-size: clamp(3rem,8.5vw,8rem); line-height: .95; letter-spacing: -.07em; font-weight: 500; }
+.open-channel-copy > a i { font-size: .48em; font-style: normal; transition: transform .3s; }
+.open-channel-copy > a:hover i { transform: translate(8px,-8px); }
+.open-channel-meta { display: flex; justify-content: space-between; gap: 1.5rem; color: #34383c; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+.open-channel-meta a { border-bottom: 1px solid transparent; }
+.open-channel-meta a:hover { border-color: currentColor; }
+
+@keyframes humanShift { 0%,100%{transform:rotate(-1deg)} 50%{transform:rotate(3deg)} }
+@keyframes robotShift { 0%,100%{transform:rotate(1deg)} 50%{transform:rotate(-3deg)} }
+@keyframes dataFlow { to{stroke-dashoffset:-42} }
+@keyframes readout { 50%,100%{transform:translateX(100%)} }
+@keyframes scan { 0%,100%{top:15%} 50%{top:82%} }
+@keyframes freeSlot { 50%{box-shadow:inset 0 0 25px rgba(102,126,234,.2),0 0 14px rgba(102,126,234,.16)} }
+
+@media (max-width: 850px) {
+    .project-showcase-wide { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .project-showcase-wide .project-visual { height: 430px; }
+}
+
+@media (max-width: 680px) {
+    .project-showcase { grid-template-columns: 1fr; }
+    .project-showcase-wide { grid-column: auto; }
+    .project-visual, .project-showcase-wide .project-visual { height: 330px; }
+    .project-showcase-info { padding: 1.5rem; }
+    .project-eyebrow { margin-bottom: 1.3rem; }
+    .open-channel { min-height: 75vh; padding-top: 5rem; }
+    .open-channel-copy > a { border-bottom-width: 3px; font-size: clamp(2.9rem,14vw,5rem); }
+    .open-channel-meta { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pose-human, .pose-robot, .data-stream, .visual-readout i::after, .scan, .parking-map .free { animation: none; }
 }
