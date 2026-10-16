@@ -1350,6 +1350,9 @@ section {
    OPEN CHANNEL
    ============================================ */
 .open-channel { min-height: 88vh; padding: 7rem 0 2.5rem; background: #f0f0ec; color: #0a0a0a; }
+.technology-dock { padding: 4.5rem 0; background: var(--bg-primary); border-top: 1px solid var(--border-color); }
+.technology-dock .container { display: flex; justify-content: center; }
+.technology-dock .dock { margin: 0; }
 .open-channel-inner { min-height: calc(88vh - 9.5rem); display: flex; flex-direction: column; }
 .open-channel-label { color: #697078; font-size: .7rem; letter-spacing: .12em; }
 .open-channel-copy { margin: auto 0; }
@@ -1382,6 +1385,10 @@ section {
     .open-channel { min-height: 75vh; padding-top: 5rem; }
     .open-channel-copy > a { border-bottom-width: 3px; font-size: clamp(2.9rem,14vw,5rem); }
     .open-channel-meta { display: grid; grid-template-columns: 1fr 1fr; }
+    .technology-dock { padding: 3.5rem 0; }
+    .technology-dock .container { justify-content: flex-start; overflow-x: auto; padding-block: 2rem; scrollbar-width: none; }
+    .technology-dock .container::-webkit-scrollbar { display: none; }
+    .technology-dock .dock { flex: 0 0 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
