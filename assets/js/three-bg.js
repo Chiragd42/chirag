@@ -31,13 +31,14 @@ uniform vec2  uMouse;
 
 const float PI = 3.141592653;
 const int   MARCH_STEPS = 8;
-const float SEA_HEIGHT  = 0.6;
-const float SEA_CHOPPY  = 4.0;
-const float SEA_SPEED   = 0.8;
+const float SEA_HEIGHT  = 0.38;
+const float SEA_CHOPPY  = 2.6;
+const float SEA_SPEED   = 0.45;
 const float SEA_FREQ    = 0.16;
-const vec3  SEA_BASE    = vec3(0.0, 0.09, 0.18);
-const vec3  SEA_COLOR   = vec3(0.48, 0.54, 0.36);
-const mat2  OCT_M       = mat2(1.6, 1.2, -1.2, 1.6);
+const vec3  SEA_BASE    = vec3(0.008, 0.019, 0.029);
+const vec3  SEA_COLOR   = vec3(0.025, 0.055, 0.075);
+// Rotate each octave without scaling twice (frequency is advanced below).
+const mat2  OCT_M       = mat2(0.8, 0.6, -0.6, 0.8);
 
 /* ---- Gradient noise (no grid artifacts) ---- */
 vec2 ghash(vec2 p) {
@@ -87,7 +88,7 @@ float mapHeight(vec3 p) {
         d  = sea_octave((uv + t) * freq, choppy);
         d += sea_octave((uv - t) * freq, choppy);
         h += d * amp;
-        uv *= OCT_M; freq *= 1.9; amp *= 0.22;
+        uv *= OCT_M; freq *= 2.4; amp *= 0.28;
         choppy = mix(choppy, 1.0, 0.2);
     }
     return p.y - h;
@@ -103,7 +104,7 @@ float mapHeightDetailed(vec3 p) {
         d  = sea_octave((uv + t) * freq, choppy);
         d += sea_octave((uv - t) * freq, choppy);
         h += d * amp;
-        uv *= OCT_M; freq *= 1.9; amp *= 0.22;
+        uv *= OCT_M; freq *= 2.4; amp *= 0.28;
         choppy = mix(choppy, 1.0, 0.2);
     }
     return p.y - h;
@@ -155,7 +156,7 @@ vec3 renderStars(vec3 rd) {
             if (n > 0.80) {
                 vec2 sp = o + vec2(shash(ci + 100.0), shash(ci + 200.0)) - 0.5 - gv;
                 float d = length(sp);
-                float s = smoothstep(0.06, 0.0, d);
+                float s = 1.0 - smoothstep(0.0, 0.06, d);
                 float tw = sin(iTime * (0.8 + n * 2.0) + n * 60.0) * 0.3 + 0.7;
                 vec3 sc = mix(vec3(0.75, 0.82, 1.0), vec3(1.0, 0.92, 0.75), shash(ci + 300.0));
                 col += sc * s * tw * (0.4 + n * 0.6);
@@ -166,46 +167,45 @@ vec3 renderStars(vec3 rd) {
 }
 
 /* ============ SKY ============ */
-vec3 renderSky(vec3 rd) {
+vec3 skyGradient(vec3 rd) {
     float y = max(rd.y, 0.0);
     // Richer gradient — deeper blue horizon, blacker zenith
     vec3 col = mix(vec3(0.03, 0.05, 0.13), vec3(0.002, 0.005, 0.015), smoothstep(0.0, 0.8, y));
     col += vec3(0.015, 0.03, 0.065) * exp(-y * 3.0);
+    return col;
+}
+
+vec3 renderSky(vec3 rd) {
+    float y = max(rd.y, 0.0);
+    vec3 col = skyGradient(rd);
     // Stars
     col += renderStars(rd) * smoothstep(0.0, 0.12, y);
     // Clouds (FBM)
     vec2 cuv = rd.xz / (rd.y + 0.3) * 1.5;
     float cloud = fbm(cuv + iTime * 0.008);
     cloud = smoothstep(0.35, 0.75, cloud);
-    cloud *= smoothstep(0.0, 0.12, y) * smoothstep(0.6, 0.2, y);
+    cloud *= smoothstep(0.0, 0.12, y) * (1.0 - smoothstep(0.2, 0.6, y));
     col = mix(col, vec3(0.05, 0.07, 0.12), cloud * 0.25);
     return col;
 }
 
 /* ============ SEA COLOR (with proper normals) ============ */
-vec3 getSeaColor(vec3 p, vec3 n, vec3 eye, vec3 rd) {
+vec3 getSeaColor(vec3 n, vec3 rd) {
     vec3 lightDir = normalize(vec3(0.25, 0.45, 1.0));
     // Fresnel
-    float fresnel = clamp(1.0 - dot(n, -rd), 0.0, 1.0);
-    fresnel = pow(fresnel, 3.0) * 0.65;
+    float facing = max(dot(n, -rd), 0.0);
+    float fresnel = 0.02 + 0.98 * pow(1.0 - facing, 5.0);
     // Simplified reflected sky (gradient only — fast)
     vec3 refl = reflect(rd, n);
-    float ry = max(refl.y, 0.0);
-    vec3 skyRefl = mix(vec3(0.03, 0.05, 0.13), vec3(0.002, 0.005, 0.015), smoothstep(0.0, 0.8, ry));
-    skyRefl += vec3(0.015, 0.03, 0.065) * exp(-ry * 3.0);
+    vec3 skyRefl = skyGradient(refl);
     // Diffuse
     float diff = pow(dot(n, lightDir) * 0.4 + 0.6, 1.0);
     // Specular
     vec3 halfDir = normalize(lightDir - rd);
-    float spec = pow(max(dot(n, halfDir), 0.0), 120.0) * 0.8;
-    // Subsurface scattering
-    float sss = pow(clamp(1.0 + dot(rd, n), 0.0, 1.0), 3.0);
-    vec3 waterCol = mix(SEA_BASE, SEA_COLOR * 0.12, diff);
+    float spec = pow(max(dot(n, halfDir), 0.0), 180.0) * 0.24;
+    vec3 waterCol = mix(SEA_BASE, SEA_COLOR, diff * 0.35);
     vec3 col = mix(waterCol, skyRefl, fresnel);
-    // Height-based foam
-    float atten = max(1.0 - dot(p - eye, p - eye) * 0.001, 0.0);
-    col += SEA_COLOR * (p.y - SEA_HEIGHT) * 0.18 * atten;
-    col += vec3(sss * 0.04);
+    // Quiet water: no emissive crest/foam term on every wave.
     col += vec3(0.6, 0.65, 0.8) * spec;
     return col;
 }
@@ -218,11 +218,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // Camera
     float camH = 3.5;
-    vec3 ro = vec3(0.0, camH, iTime * 1.5);
-    vec3 target = vec3(0.0, camH, ro.z + 6.0);
+    vec3 ro = vec3(0.0, camH, 0.0);
+    vec3 target = vec3(0.0, camH, 6.0);
     // Mouse influence
-    target.x += (uMouse.x - 0.5) * 2.0;
-    target.y += (uMouse.y - 0.5) * 0.5;
+    target.x += (uMouse.x - 0.5) * 0.35;
+    target.y += (uMouse.y - 0.5) * 0.12;
 
     // Camera matrix
     vec3 fw = normalize(target - ro);
@@ -238,15 +238,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 hitPos;
         float t = heightMapTrace(ro, rd, hitPos);
         if (t < 1000.0) {
-            vec3 dist = hitPos - ro;
-            float fade = 1.0 - smoothstep(0.0, 800.0, dot(dist, dist));
-            float eps = dot(dist, dist) * 0.000001;
-            vec3 n = getNormal(hitPos, max(eps, 0.002));
-            vec3 seaCol = getSeaColor(hitPos, n, ro, rd);
-            // Atmospheric fog (constant — no extra sky eval)
-            float fogAmt = 1.0 - exp(-t * 0.002);
-            seaCol = mix(seaCol, vec3(0.02, 0.04, 0.08), fogAmt);
-            col = mix(col, seaCol, fade);
+            // Filter normals with the pixel footprint to soften distant ripples.
+            float eps = max(0.015, t / iResolution.y);
+            vec3 n = getNormal(hitPos, eps);
+            vec3 seaCol = getSeaColor(n, rd);
+            // Keep the ocean continuous; only haze it out at the horizon.
+            float fogAmt = 1.0 - exp(-t * 0.008);
+            col = mix(seaCol, skyGradient(vec3(rd.x, 0.0, rd.z)), fogAmt);
         }
     }
 

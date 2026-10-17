@@ -274,6 +274,44 @@ function initAnimations() {
         }
     });
 
+    // --- About section ---
+    gsap.from('.about-image', {
+        opacity: 0,
+        x: -60,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.about-content',
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    gsap.from('.about-description', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.about-text',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    gsap.from('.stat', {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.about-stats',
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
     // --- Interactive project cards (staggered) ---
     gsap.from('.project-showcase-card', {
         opacity: 0,
@@ -282,21 +320,106 @@ function initAnimations() {
         stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: {
-            trigger: '.project-showcase',
+            trigger: '.projects-list',
             start: 'top 75%',
             toggleActions: 'play none none reverse',
         },
     });
 
-    // --- Open channel ---
-    gsap.from('.open-channel-copy', {
+    // --- Skill categories ---
+    gsap.from('.skill-category', {
         opacity: 0,
-        y: 55,
-        duration: 0.9,
+        y: 40,
+        duration: 0.6,
+        stagger: 0.15,
         ease: 'power3.out',
         scrollTrigger: {
-            trigger: '.open-channel',
+            trigger: '.skills-grid',
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    // --- Skill tags pop in ---
+    document.querySelectorAll('.skill-category').forEach((cat) => {
+        gsap.from(cat.querySelectorAll('.skill-tag'), {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: cat,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+            },
+        });
+    });
+
+    // --- Timeline line draw ---
+    gsap.from('.timeline-line', {
+        scaleY: 0,
+        transformOrigin: 'top',
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.timeline',
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    // --- Timeline items ---
+    gsap.from('.timeline-item', {
+        opacity: 0,
+        x: -40,
+        duration: 0.8,
+        stagger: 0.3,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.timeline',
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    // --- Quote section ---
+    gsap.from('.quote p', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.quote-section',
             start: 'top 70%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    // --- Contact items ---
+    gsap.from('.contact-item', {
+        opacity: 0,
+        x: -30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.contact-links',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    // --- Footer ---
+    gsap.from('.footer-content', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 95%',
             toggleActions: 'play none none reverse',
         },
     });
@@ -418,39 +541,35 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 /* ============================================
-   TECHNOLOGY DOCK — macOS Magnification
+   SKILL DOCK — macOS Magnification
    ============================================ */
 (function () {
     const icons = document.querySelectorAll('.dock-item');
     const dock = document.getElementById('skill-dock');
     if (!dock || !icons.length) return;
 
-    const min = 60;
+    const min = 60; // base size + margin
     const max = 120;
     const bound = min * Math.PI;
 
     gsap.set(icons, { transformOrigin: '50% 100%', height: 48 });
     gsap.set(dock, { position: 'relative', height: 60 });
 
-    dock.addEventListener('mousemove', function (event) {
+    dock.addEventListener('mousemove', function (e) {
         const offset = dock.getBoundingClientRect().left + icons[0].offsetLeft;
-        const pointer = event.clientX - offset;
-
-        icons.forEach((icon, index) => {
-            const distance = (index * min + min / 2) - pointer;
-            let x = 0;
-            let scale = 1;
-
+        const pointer = e.clientX - offset;
+        for (let i = 0; i < icons.length; i++) {
+            const distance = (i * min + min / 2) - pointer;
+            let x = 0, scale = 1;
             if (-bound < distance && distance < bound) {
-                const radians = distance / min * 0.5;
-                scale = 1 + (max / min - 1) * Math.cos(radians);
-                x = 2 * (max - min) * Math.sin(radians);
+                const rad = distance / min * 0.5;
+                scale = 1 + (max / min - 1) * Math.cos(rad);
+                x = 2 * (max - min) * Math.sin(rad);
             } else {
                 x = (distance > 0 ? 2 : -2) * (max - min);
             }
-
-            gsap.to(icon, { duration: 0.3, x, scale });
-        });
+            gsap.to(icons[i], { duration: 0.3, x: x, scale: scale });
+        }
     });
 
     dock.addEventListener('mouseleave', function () {

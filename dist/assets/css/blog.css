@@ -1,0 +1,37 @@
+/* Journal pages extend the portfolio's paper, ink, and mono design tokens. */
+.writing{background:#e8e9e3;border-top:1px solid var(--line)}
+.writing-empty{max-width:620px;color:var(--muted);font-size:17px}
+.writing-more{display:inline-block;margin-top:26px}
+.post-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.post-card{display:flex;flex-direction:column;align-items:start;min-height:250px;padding:28px;border:1px solid var(--line);background:var(--paper);text-decoration:none;transition:transform .2s,border-color .2s}
+.post-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.post-card h3{font-size:clamp(23px,3vw,34px);line-height:1.2;margin:22px 0 8px}
+.post-card p{font-size:13px;color:var(--muted);margin:0 0 20px}
+.post-card .post-arrow{margin-top:auto;font-size:12px;color:var(--accent)}
+.post-meta{color:var(--muted);font-size:10px;text-transform:uppercase}
+.journal-page .site-header{height:auto;min-height:88px}
+.journal-page .site-header nav{margin-left:auto}
+.journal-page .journal-main{min-height:calc(100vh - 190px)}
+.journal-page .journal-intro{max-width:1100px;padding:85px var(--pad) 45px;margin:auto}
+.journal-page .journal-intro h1,.journal-page .article-header h1{font-size:clamp(47px,7vw,85px);line-height:1.08;letter-spacing:-.06em;margin:24px 0}
+.journal-page .journal-intro>p:last-child,.journal-page .article-header>p:last-child{font-size:16px;max-width:650px;color:var(--muted)}
+.journal-page .journal-list{max-width:1100px;padding:0 var(--pad) 100px;margin:auto}
+.journal-page .journal-list .post-card{background:#e8e9e3}
+.journal-page .journal-footer{padding:30px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:12px}
+.journal-page .journal-footer a{text-underline-offset:4px}
+.article-shell{max-width:860px;padding:65px var(--pad) 120px;margin:auto}
+.article-back{font-size:12px;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:8px}
+.article-header{padding-top:65px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.article-header h1{overflow-wrap:anywhere}
+.article-content{font-size:16px;line-height:1.85;color:var(--ink)}
+.article-content>p,.article-content>ul,.article-content>ol,.article-content>blockquote{margin:28px 0}
+.article-content h2,.article-content h3{line-height:1.25;margin:55px 0 18px;letter-spacing:-.035em}
+.article-content h2{font-size:33px}.article-content h3{font-size:24px}
+.article-content ul,.article-content ol{padding-left:28px}.article-content li{padding-left:6px;margin:8px 0}
+.article-content blockquote{margin-left:0;padding:2px 0 2px 22px;border-left:3px solid var(--accent);color:var(--muted)}
+.article-content a{color:#365970;text-underline-offset:4px}
+.article-content pre{overflow-x:auto;padding:23px;background:var(--ink);color:#e7e7e0;border-radius:4px;font:13px/1.7 var(--mono)}
+.article-content :not(pre)>code{background:#dee1dc;padding:2px 5px;font:13px/1.6 var(--mono)}
+.article-content img{width:auto;max-width:100%;height:auto;margin:30px auto}
+@media(max-width:720px){.post-list{grid-template-columns:1fr}.post-card{min-height:200px}.journal-page .site-header{padding-block:18px;flex-wrap:wrap;gap:10px}.journal-page .site-header nav{position:static;display:flex;flex-wrap:wrap;margin:0;padding:0;border:0;background:none;gap:12px 20px;width:100%}.journal-page .journal-intro{padding-top:60px}.article-shell{padding-top:40px}.article-header{padding-top:45px}}
+@media(prefers-reduced-motion:reduce){.post-card{transition:none}.post-card:hover{transform:none}}

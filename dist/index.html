@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chirag Dabhere — robotics, human–robot interaction, and real-time systems. Student Research Assistant at the Max Planck Institute for Intelligent Systems.">
+  <meta name="theme-color" content="#efeee9">
+  <title>Chirag Dabhere — Humans, robots & everything between.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/person-fill.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Chirag Dabhere, home"><span class="brand-mark">cd.</span><span>Chirag Dabhere</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav">Menu <span aria-hidden="true">＋</span></button>
+    <nav id="primary-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="blog/index.html">Writing</a>
+      <a class="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Robotics · Research · Engineering</p>
+        <h1 id="hero-title"><span>Humans, robots</span><br>&amp; everything<br><em>between.</em></h1>
+        <p class="hero-intro">I’m Chirag. I work where human movement meets intelligent systems—building the software that connects them.</p>
+        <div class="hero-actions"><a class="button" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="text-link" href="#experience">My journey <span aria-hidden="true">↗</span></a></div>
+        <div class="current-role"><span class="mono">Currently</span><p>Student Research Assistant<br><strong>Max Planck Institute for Intelligent Systems</strong></p></div>
+      </div>
+      <div class="hero-visual">
+        <div class="portrait-frame"><img src="assets/img/avatars/chirag.jpeg" alt="Chirag Dabhere smiling outdoors" width="932" height="1024" fetchpriority="high"></div>
+        <div class="portrait-coordinate mono">Stuttgart, Germany<span>Human first. Always curious.</span></div>
+        <div class="orbital-mark" aria-hidden="true"><span></span><i></i></div>
+        <span class="portrait-caption mono">A little curiosity goes a long way.</span>
+      </div>
+      <a class="scroll-cue mono" href="#work"><span>Scroll to discover</span><span aria-hidden="true">↓</span></a>
+    </section>
+    <div class="context-strip"><span class="mono">From research to real-world systems</span><span>Human–robot interaction</span><span>Computer vision</span><span>Real-time software</span></div>
+
+    <section class="work section" id="work" aria-labelledby="work-title">
+      <div class="section-top"><p class="eyebrow">01 / Selected work</p><p class="section-aside">A closer look at the problems I work on.</p></div>
+      <h2 id="work-title">Making complex things<br><em>work together.</em></h2>
+      <div class="work-list">
+        <article class="work-item">
+          <div class="work-art motion-art">
+            <span class="art-label mono">Human motion → Robot motion</span>
+            <svg viewBox="0 0 500 290" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5"><path opacity=".15" d="M0 70H500M0 145H500M0 220H500M100 0V290M200 0V290M300 0V290M400 0V290"/><g class="human-skeleton"><circle cx="155" cy="67" r="17"/><path d="M155 85V155M115 110H195M115 110L90 160M155 155L125 225M155 155L185 225"/><path class="human-arm" d="M195 110L220 80"/><g fill="currentColor"><circle cx="155" cy="110" r="4"/><circle cx="115" cy="110" r="4"/><circle cx="195" cy="110" r="4"/><circle cx="155" cy="155" r="4"/></g></g><path class="signal" stroke-dasharray="4 7" d="M235 145H310"/><g class="robot-skeleton"><rect x="350" y="47" width="36" height="36" rx="5"/><rect x="341" y="97" width="55" height="61" rx="4"/><path d="M341 110H326L310 160M396 110H410M355 158V222M384 158V222M343 224H366M372 224H395"/><path class="robot-arm" d="M410 110L432 80"/><circle cx="360" cy="64" r="2"/><circle cx="377" cy="64" r="2"/></g></g></svg>
+            <div class="motion-demo"><label class="mono" for="pose-control">Try a movement <span aria-hidden="true">↔</span></label><input id="pose-control" type="range" min="-50" max="70" value="0" aria-label="Illustrated arm rotation in degrees"><span class="mono demo-note">Concept illustration, not a live robot feed.</span></div>
+          </div>
+          <div class="work-copy"><p class="mono project-category">Research / Max Planck Institute</p><h3>Translating movement<br>into interaction.</h3><p>Motion capture pipelines and real-time robot software for human–robot teleoperation.</p><div class="tags"><span>ROS 2</span><span>C++</span><span>Motion capture</span></div>
+            <details><summary>Explore the work <span aria-hidden="true">＋</span></summary><div class="detail-content"><h4>The challenge</h4><p>Connect human pose data to robotic systems within an existing research framework.</p><h4>My contribution</h4><p>Led a ROS 1 to ROS 2 migration, rewrote performance-critical components in C++, and refactored motion capture pipelines. Worked with Xsens and Captury data, rotation matrices, robot coordinate systems, RViz, and TF visualization.</p><p class="detail-note">Hands-on platforms: Baxter, NAO, and in-house robots.</p></div></details>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-art vision-art" aria-hidden="true"><span class="art-label mono">Vision → Language → Interaction</span><div class="vision-frame"><svg viewBox="0 0 200 200" fill="none"><g stroke="currentColor" stroke-width="1.5"><path d="M92 164L57 124L42 97L50 88L78 115L69 50L78 45L95 102L95 29L107 28L111 99L122 37L134 41L125 106L145 64L155 70L140 133L119 168Z"/><path opacity=".4" d="M92 164L78 115L111 99L125 106L140 133M92 164L111 99M92 164L125 106"/></g><g fill="currentColor"><circle cx="92" cy="164" r="3"/><circle cx="78" cy="115" r="3"/><circle cx="111" cy="99" r="3"/><circle cx="125" cy="106" r="3"/><circle cx="140" cy="133" r="3"/></g></svg><div class="scan-line"></div></div><span class="art-foot mono">Hand landmarks / Gesture recognition</span></div>
+          <div class="work-copy"><p class="mono project-category">Research project / 2023</p><h3>More ways to<br>be understood.</h3><p>A multimodal assistive system connecting sign language recognition, speech, and text.</p><div class="tags"><span>OpenCV</span><span>MediaPipe</span><span>Machine learning</span></div><details><summary>Explore the project <span aria-hidden="true">＋</span></summary><div class="detail-content"><h4>The idea</h4><p>Bring gesture recognition and speech interfaces into one real-time interaction pipeline.</p><h4>What I built</h4><p>Hand landmark detection and gesture segmentation with OpenCV and MediaPipe, curated vision datasets, and a logistic regression classifier for one- and two-handed signs. Integrated speech-to-text and text-to-speech into a low-latency pipeline.</p></div></details></div>
+        </article>
+        <article class="work-item">
+          <div class="work-art parking-art" aria-hidden="true"><span class="art-label mono">Physical space → Digital twin</span><div class="parking-grid"><i></i><i class="occupied"></i><i></i><i class="occupied"></i><i class="occupied"></i><i></i></div><div class="cloud-line"></div><span class="art-foot mono">Sensors · MQTT · Cloud</span></div>
+          <div class="work-copy"><p class="mono project-category">IoT project / 2022</p><h3>A clearer view<br>of physical space.</h3><p>A parking validation system that connects sensor data to a cloud-based digital twin.</p><div class="tags"><span>ESP8266</span><span>AWS IoT</span><span>MQTT</span></div><details><summary>Explore the project <span aria-hidden="true">＋</span></summary><div class="detail-content"><h4>The system</h4><p>ESP8266 microcontrollers and ultrasonic sensors collect occupancy data and stream it through secure MQTT to AWS IoT Core.</p><h4>What I built</h4><p>A digital twin model with an EC2-based backend for remote monitoring and predictive insights.</p></div></details></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience" aria-labelledby="experience-title">
+      <div class="section-top"><p class="eyebrow">02 / Experience</p><p class="section-aside">Different settings. The same care for how things work.</p></div>
+      <h2 id="experience-title">From software quality<br>to <em>human connection.</em></h2>
+      <div class="timeline">
+        <article class="experience-row"><p class="mono">Jul 2025 — Present<br><span>Stuttgart, Germany</span></p><div><p class="role-label mono">Haptic Intelligence</p><h3>Max Planck Institute<br>for Intelligent Systems</h3><h4>Student Research Assistant</h4><p>Human–robot interaction and teleoperation research. Real-time ROS architectures, motion capture integration, robot calibration, and lab operations.</p></div><span class="row-index mono">01</span></article>
+        <article class="experience-row"><p class="mono">Oct 2023 — Jun 2024<br><span>Mumbai, India</span></p><div><p class="role-label mono">Quality Engineering</p><h3>Reliance Jio Platforms</h3><h4>Assistant Manager — QA Engineer</h4><p>Led a team of five testers across multiple environments. Created test strategies and regression scripts, tested APIs with Postman, and worked with Azure DevOps and CI/CD deployments.</p></div><span class="row-index mono">02</span></article>
+      </div>
+    </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <p class="eyebrow">03 / A little about me</p>
+      <div class="about-grid"><div><h2 id="about-title">Curiosity is<br>the <em>constant.</em></h2><p class="about-lead">From electronics in Pune to information technology in Stuttgart, I keep coming back to one question: how can we make technology easier to interact with?</p><p>I’m pursuing an MEng in Information Technology at Universität Stuttgart while working in Haptic Intelligence research. My work brings together software, perception, and physical systems.</p></div><div class="toolkit"><h3>Things I work with</h3><div><span class="mono">01 / Software</span><p>C / C++ · Python · SQL · Linux · Docker</p></div><div><span class="mono">02 / Robotics</span><p>ROS 1 &amp; 2 · Gazebo · RViz · MoveIt · Real-time systems</p></div><div><span class="mono">03 / Perception</span><p>PyTorch · TensorFlow · OpenCV · Pandas · Language models</p></div></div></div>
+      <div class="education"><article><p class="mono">Oct 2024 — / Stuttgart</p><h3>MEng, Information Technology</h3><p>Universität Stuttgart</p></article><article><p class="mono">2019 — 2023 / Pune</p><h3>BTech, Electronics &amp; Communication</h3><p>Sinhgad College of Engineering, Pune University</p></article></div>
+      <details class="learning"><summary>Beyond the technical toolkit <span aria-hidden="true">＋</span></summary><div class="learning-grid"><p><strong>Agile Project Management</strong><br>Google</p><p><strong>Introduction to Generative AI</strong><br>Google Cloud</p><p><strong>Design Thinking for Innovation</strong><br>University of Virginia</p></div></details>
+    </section>
+    <section class="writing section" id="writing" aria-labelledby="writing-title">
+      <div class="section-top"><p class="eyebrow">04 / Field notes</p><p class="section-aside">Things I learn while building and researching.</p></div>
+      <h2 id="writing-title">Ideas worth<br><em>writing down.</em></h2>
+      <!-- BLOG_PREVIEW_START -->
+<p class="writing-empty">Notes on robotics, software, and the questions I’m exploring. First post coming soon.</p>
+<!-- BLOG_PREVIEW_END -->
+      <a class="text-link writing-more" href="blog/index.html">Explore the journal <span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="section-top"><p class="eyebrow">05 / What’s next?</p><p class="section-aside">Research, a collaboration, or a good conversation.</p></div>
+      <h2 id="contact-title">Good things start<br>with <em>a conversation.</em></h2>
+      <div class="contact-actions"><a class="button" href="mailto:chiragdabhere@gmail.com">Say hello <span aria-hidden="true">↗</span></a><button class="copy-email text-link" type="button">Copy email <span aria-hidden="true">＋</span></button><span class="copy-status mono" role="status" aria-live="polite"></span></div>
+      <a class="email-address" href="mailto:chiragdabhere@gmail.com">chiragdabhere@gmail.com</a>
+    </section>
+  </main>
+  <footer><a class="brand-mark" href="#home" aria-label="Back to top">cd.</a><p class="mono">© <span id="year">2026</span> Chirag Dabhere</p><div><a href="https://github.com/Chiragd42" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chirag-dabhere-7261251ba" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><button class="motion-toggle" type="button" aria-pressed="false">Pause motion</button><a href="#home" aria-label="Back to top">↑</a></div></footer>
+</body>
+</html>

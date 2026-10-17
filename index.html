@@ -24,7 +24,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
             <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="nav-toggle" aria-label="Toggle menu">
@@ -35,7 +37,9 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
         <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#skills" class="mobile-link">Skills</a>
         <a href="#contact" class="mobile-link">Contact</a>
     </div>
 
@@ -62,11 +66,40 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">I am a full stack developer and a machine learning enthusiast with hands-on experience across multiple technologies. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Skill Areas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">01</span>
+                <span class="section-number">02</span>
                 <h2 class="section-title">Projects</h2>
             </div>
             <div class="project-showcase">
@@ -132,27 +165,50 @@
         </div>
     </section>
 
-    <section class="technology-dock" aria-label="Technologies I work with">
+    <!-- Skills & Education Section -->
+    <section class="skills" id="skills">
         <div class="container">
-            <ul class="dock" id="skill-dock">
-                <li class="dock-item" data-label="HTML"><img src="assets/icons/html5-original.svg" alt="HTML"></li>
-                <li class="dock-item" data-label="CSS"><img src="assets/icons/css3-original.svg" alt="CSS"></li>
-                <li class="dock-item" data-label="JavaScript"><img src="assets/icons/javascript-original.svg" alt="JavaScript"></li>
-                <li class="dock-item" data-label="Node.js"><img src="assets/icons/nodejs-original.svg" alt="Node.js"></li>
-                <li class="dock-item" data-label="Express.js"><img src="assets/icons/express-original.svg" alt="Express.js"></li>
-                <li class="dock-item" data-label="C++"><img src="assets/icons/cplusplus-original.svg" alt="C++"></li>
-                <li class="dock-item" data-label="Python"><img src="assets/icons/python-original.svg" alt="Python"></li>
-                <li class="dock-item" data-label="TensorFlow"><img src="assets/icons/tensorflow-original.svg" alt="TensorFlow"></li>
-                <li class="dock-item" data-label="PyTorch"><img src="assets/icons/pytorch-original.svg" alt="PyTorch"></li>
-                <li class="dock-item" data-label="SQL"><img src="assets/icons/mysql-original.svg" alt="SQL"></li>
-                <li class="dock-item" data-label="MongoDB"><img src="assets/icons/mongodb-original.svg" alt="MongoDB"></li>
-            </ul>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Skills &amp; Education</h2>
+            </div>
+
+            <!-- Skill Dock -->
+            <div class="dock-wrapper">
+                <ul class="dock" id="skill-dock">
+                    <li class="dock-item" data-label="HTML"><img src="assets/icons/html5-original.svg" alt="HTML"></li>
+                    <li class="dock-item" data-label="CSS"><img src="assets/icons/css3-original.svg" alt="CSS"></li>
+                    <li class="dock-item" data-label="JavaScript"><img src="assets/icons/javascript-original.svg" alt="JavaScript"></li>
+                    <li class="dock-item" data-label="Node.js"><img src="assets/icons/nodejs-original.svg" alt="Node.js"></li>
+                    <li class="dock-item" data-label="Express.js"><img src="assets/icons/express-original.svg" alt="Express.js"></li>
+                    <li class="dock-item" data-label="C++"><img src="assets/icons/cplusplus-original.svg" alt="C++"></li>
+                    <li class="dock-item" data-label="Python"><img src="assets/icons/python-original.svg" alt="Python"></li>
+                    <li class="dock-item" data-label="TensorFlow"><img src="assets/icons/tensorflow-original.svg" alt="TensorFlow"></li>
+                    <li class="dock-item" data-label="PyTorch"><img src="assets/icons/pytorch-original.svg" alt="PyTorch"></li>
+                    <li class="dock-item" data-label="SQL"><img src="assets/icons/mysql-original.svg" alt="SQL"></li>
+                    <li class="dock-item" data-label="MongoDB"><img src="assets/icons/mongodb-original.svg" alt="MongoDB"></li>
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="edu-row">
+                <div class="edu-card">
+                    <span class="edu-period">2019 &mdash; 2023</span>
+                    <h3 class="edu-title">B.E. in Electronics &amp; Telecommunication</h3>
+                    <p class="edu-org">Sinhgad College of Engineering, Pune</p>
+                </div>
+                <div class="edu-card">
+                    <span class="edu-period">2017 &mdash; 2019</span>
+                    <h3 class="edu-title">Intermediate Education</h3>
+                    <p class="edu-org">Velociity Junior College</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="open-channel" id="contact">
         <div class="container open-channel-inner">
-            <span class="open-channel-label">02 / OPEN CHANNEL</span>
+            <span class="open-channel-label">04 / OPEN CHANNEL</span>
             <div class="open-channel-copy">
                 <p>Have a research problem, a robotics project, or just a curious idea?</p>
                 <a href="mailto:chiragdabhere@gmail.com">Let’s build what’s next.<i>↗</i></a>
