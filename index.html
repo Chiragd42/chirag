@@ -1,163 +1,109 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Chirag Dabhere</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="icon" href="assets/person-fill.svg">
-    <style>
-        h4 a {
-            text-decoration: none;
-            color: white;
-        }
-        a {
-            text-decoration: none;
-        }
-        .portfolio-block {
-            padding: 0;
-        }
-        #hobbies-group h2, #hobbies-group div{
-            margin-bottom: 0;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e7">
+    <meta name="description" content="Chirag Dabhere — a developer working across robotics, machine learning, and the web. Explore selected projects and the thinking behind them.">
+    <title>Chirag Dabhere — Engineering & Curiosity</title>
+    <link rel="icon" href="assets/person-fill.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/cormorant-garamond-medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/instrument-sans-regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script>
 </head>
-
 <body>
-    <main class="page cv-page">
-        <section class="portfolio-block block-intro border-bottom">
-            <div class="container">
-                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/chirag.jpeg&quot;);"></div>
-                <div class="about-me">
-                    <p>Hello! I am <strong>Chirag Dabhere</strong> I am a full stack developer and a machine learning enthusiast and have hands on experience with multiple technologies </p>
-                </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="site-header">
+        <a class="brand" href="#home" aria-label="Chirag Dabhere, home"><span class="brand-mark" aria-hidden="true">cd<span>·</span></span><span class="brand-name">CHIRAG<br>DABHERE</span></a>
+        <button class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" type="button"><span>Menu</span><i aria-hidden="true"></i></button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+            <a class="nav-link" href="#work">Selected work</a>
+            <a class="nav-link" href="#about">The person</a>
+            <a class="nav-link" href="#expertise">Expertise</a>
+            <a class="nav-link nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="hero wrap" id="home" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow hero-eyebrow"><span class="small-sun" aria-hidden="true">✳</span> A curious mind. A builder at heart.</p>
+                <h1 id="hero-title">Engineering<br>what comes<br><em>next.</em></h1>
+                <p class="hero-intro">I’m Chirag, a developer connecting human ideas<br class="desktop-break"> with intelligent systems.</p>
+                <p class="hero-disciplines">Robotics <span>·</span> Machine learning <span>·</span> Full-stack development</p>
+                <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="text-link" href="#about">A little about me <span aria-hidden="true">→</span></a></div>
             </div>
+            <figure class="hero-art">
+                <div class="arch-guide" aria-hidden="true"></div>
+                <span class="art-coordinate" aria-hidden="true">FIG. 01 / A NEW PERSPECTIVE</span>
+                <div class="arch-window"><img src="assets/images/roman-arch.jpg" alt="Golden evening light falls through a monumental Roman arch onto a distant forum." width="1122" height="1402" fetchpriority="high"></div>
+                <div class="art-seal" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="seal-circle" d="M50 50m-35 0a35 35 0 1 1 70 0a35 35 0 1 1-70 0"/></defs><text><textPath href="#seal-circle" textLength="218">ROOTED IN CURIOSITY · BUILT WITH INTENT · </textPath></text><path class="seal-star" d="M50 29v42M29 50h42M35 35l30 30M35 65l30-30"/></svg></div>
+                <figcaption><span>Old-world perspective.<br>Forward-looking ideas.</span><span aria-hidden="true">I — MMXXVI</span></figcaption>
+            </figure>
+            <div class="hero-baseline"><span>BASED IN STUTTGART, GERMANY</span><a href="#work">SCROLL TO DISCOVER <span aria-hidden="true">↓</span></a></div>
         </section>
-        <section class="portfolio-block cv">
-            <div class="container">
-                <section class="portfolio-block project-no-images">
-                    <div class="container">
-                        <div class="heading">
-                            <h2>My Projects&nbsp;</h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="project-card-no-image">
-                                    <h3>NE Flappy Bird Version</h3>
-                                    <h4>A NeuroEvolution driven self learning version of classic game Flappy Bird</h4><a class="btn btn-outline-primary btn-sm" role="button" href="https://github.com/crudybagger/NeuroEvolution-Flappy-Bird" target="_blank">See More</a>
-                                    <div class="tags">JavaScript</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="project-card-no-image">
-                                    <h3>Public Financing </h3>
-                                    <h4>A public financing smart contarct "Decentralised Escrow" which ensures the regulation </h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
-                                    <div class="tags">Solidity</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="project-card-no-image">
-                                    <h3>Personal Website</h3>
-                                    <h4>A professional looking web page made with Bootstrap</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
-                                    <div class="tags">Bootstrap + CSS</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="education group">
-                    <div class="heading">
-                        <h2 class="text-center">Education</h2>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3>B.E in Electronics and Tele-Communication Engineering</h3>
-                                <h4 class="organization"><a href="http://cms.sinhgad.edu/sinhgad_engineering_institutes/vadgaon_scoe/about.aspx"_blank">Singhad College Of Engineering, Pune</a></h4>
-                            </div>
-                            <div class="col-md-3"><span class="period">2019 - 2023</span></div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3>Intermediate Education</h3>
-                                <h4 class="organization">Velociity Junior College</h4>
-                            </div>
-                            <div class="col-6"><span class="period">2017 - 2019</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="skills portfolio-info-card">
-                                <h2>Skills</h2>
-                                <h3>Web Developement</h3>
-                                <p class="text-muted">HTML, CSS, JavaScript, Node.js, Express.js</p>
-                                
-                                <h3>Programming Languages</h3>
-                                <p class = "text-muted">C++, Python</p>
-                                
-                                <h3>Machine Learning</h3>
-                                <p class="text-muted">Neural Networks and Deep Learning</p>
+        <div class="principle-strip" aria-label="My approach"><div class="wrap principle-inner"><span>Thoughtful by nature.</span><span class="strip-star" aria-hidden="true">✳</span><span>Technical by craft.</span><span class="strip-star" aria-hidden="true">✳</span><span>Human by design.</span></div></div>
 
-                                <h3>DataBases</h3>
-                                <p class="text-muted">SQL, MongoDB </p>
+        <section class="work section-space wrap" id="work" aria-labelledby="work-title">
+            <div class="section-intro reveal"><div><p class="eyebrow"><span class="section-index">I</span> Selected work</p><h2 id="work-title">Ideas, <em>made real.</em></h2></div><p class="section-description">A few explorations at the intersection of<br class="desktop-break"> people, software, and the physical world.</p></div>
+            <article class="work-row reveal" aria-labelledby="teleop-title">
+                <button class="project-visual teleop-visual" type="button" data-project="teleoperation" aria-label="Explore Human–Robot Teleoperation">
+                    <span class="visual-topline"><span>HUMAN ↔ MACHINE</span><span>SYSTEM STUDY / 01</span></span>
+                    <svg class="system-diagram" viewBox="0 0 680 420" fill="none" aria-hidden="true">
+                        <defs><pattern id="teleop-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" stroke="currentColor" stroke-opacity=".09"/></pattern></defs><rect width="680" height="420" fill="url(#teleop-grid)"/>
+                        <ellipse cx="340" cy="222" rx="260" ry="144" stroke="currentColor" opacity=".15"/><ellipse cx="340" cy="222" rx="260" ry="144" stroke="currentColor" opacity=".1" transform="rotate(-20 340 222)"/>
+                        <path d="M340 45v327M68 222h544" stroke="currentColor" opacity=".15" stroke-dasharray="3 6"/>
+                        <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="190" cy="105" r="22"/><path d="M190 127v110m-56-67h112m-112 0-34 70m146-70 38-53m-94 120-39 101m39-101 42 101"/><path d="m161 155 29 82 28-82" opacity=".45"/></g>
+                        <g fill="currentColor"><circle cx="190" cy="164" r="5"/><circle cx="134" cy="170" r="5"/><circle cx="246" cy="170" r="5"/><circle cx="190" cy="237" r="5"/><circle cx="151" cy="338" r="5"/><circle cx="232" cy="338" r="5"/></g>
+                        <path d="M290 215h105m-15-10 15 10-15 10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 6"/>
+                        <g stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="454" y="82" width="48" height="43" rx="4"/><path d="M466 100h24m-12 25v29m-48 12h96m-96 0-34 69m130-69 43-52m-115 46v90h49v-90m-38 90v84m27-84v84m-43 0h30m-3 0h30"/><circle cx="430" cy="166" r="8"/><circle cx="526" cy="166" r="8"/><circle cx="569" cy="114" r="6"/></g>
+                        <path d="M116 363h145m151 0h135" stroke="currentColor" opacity=".4"/><text x="190" y="391" text-anchor="middle">HUMAN MOTION</text><text x="478" y="391" text-anchor="middle">ROBOT CONTROL</text>
+                    </svg>
+                    <span class="visual-bottomline"><span>MOTION CAPTURE → ROS 2 → ACTUATION</span><span class="visual-arrow" aria-hidden="true">↗</span></span>
+                </button>
+                <div class="project-info"><p class="eyebrow project-category">01 / Robotics & research</p><h3 id="teleop-title">Human–Robot<br><em>Teleoperation</em></h3><p>Translating human movement into intuitive robot control. Real-time motion capture, calibration, and communication brought together in one pipeline.</p><ul class="project-tags" aria-label="Technologies"><li>ROS 2</li><li>C++</li><li>Xsens</li></ul><button class="text-link project-open" type="button" data-project="teleoperation">Inside the project <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <article class="work-row work-row-reversed reveal" aria-labelledby="sign-title">
+                <button class="project-visual gesture-visual" type="button" data-project="sign-language" aria-label="Explore Sign Language Assistive System">
+                    <span class="visual-topline"><span>A LANGUAGE OF MOVEMENT</span><span>SYSTEM STUDY / 02</span></span>
+                    <svg class="system-diagram" viewBox="0 0 680 420" fill="none" aria-hidden="true"><circle cx="340" cy="214" r="158" stroke="currentColor" opacity=".13"/><circle cx="340" cy="214" r="123" stroke="currentColor" opacity=".12" stroke-dasharray="2 7"/><path d="M340 28v365M150 214h380" stroke="currentColor" opacity=".15"/><g stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m300 357-72-72-25-56 16-15 49 49-17-140 21-7 28 117-1-160 23-1 7 155 23-135 23 7-19 140 40-94 21 12-30 139-40 62Z"/><path d="m300 357-32-94 61-36 27 12 40 76M300 357l29-130m-29 130 56-118m-88 24 32-30m29-6 27 12" opacity=".45"/></g><g fill="currentColor"><circle cx="300" cy="357" r="5"/><circle cx="268" cy="263" r="5"/><circle cx="329" cy="227" r="5"/><circle cx="356" cy="239" r="5"/><circle cx="396" cy="315" r="5"/><circle cx="299" cy="73" r="4"/><circle cx="251" cy="123" r="4"/><circle cx="352" cy="92" r="4"/><circle cx="396" cy="145" r="4"/></g><path d="m356 239 113-45h89M268 263l-95-58h-62" stroke="currentColor" opacity=".5"/><text x="475" y="180">LANDMARKS</text><text x="111" y="191">GESTURE</text></svg>
+                    <span class="visual-bottomline"><span>GESTURE → RECOGNITION → EXPRESSION</span><span class="visual-arrow" aria-hidden="true">↗</span></span>
+                </button>
+                <div class="project-info"><p class="eyebrow project-category">02 / Computer vision</p><h3 id="sign-title">Making gestures<br><em>understood.</em></h3><p>A sign language assistive system connecting hand gestures with speech and text. An exploration of technology as a bridge to more accessible communication.</p><ul class="project-tags" aria-label="Technologies"><li>OpenCV</li><li>MediaPipe</li><li>Machine learning</li></ul><button class="text-link project-open" type="button" data-project="sign-language">Inside the project <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <article class="work-row reveal" aria-labelledby="parking-title">
+                <button class="project-visual parking-visual" type="button" data-project="parking" aria-label="Explore Parking Digital Twin">
+                    <span class="visual-topline"><span>PHYSICAL MEETS DIGITAL</span><span>SYSTEM STUDY / 03</span></span>
+                    <svg class="system-diagram" viewBox="0 0 680 420" fill="none" aria-hidden="true"><defs><pattern id="parking-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" stroke="currentColor" stroke-opacity=".07"/></pattern></defs><rect width="680" height="420" fill="url(#parking-grid)"/><path d="m340 195 0-53m-116 86 116-86 116 86" stroke="currentColor" opacity=".5" stroke-dasharray="4 7"/><circle cx="340" cy="102" r="39" stroke="currentColor"/><path d="M321 113h38a10 10 0 0 0 0-20 15 15 0 0 0-28-5 13 13 0 0 0-10 25Z" stroke="currentColor" stroke-width="1.5"/><g transform="translate(153 180)"><path d="m0 70 187-80 187 80-187 80Z" stroke="currentColor" opacity=".25"/><g stroke="currentColor" stroke-width="1.5"><path d="m18 93 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".05"/><path d="m88 63 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".25"/><path d="m158 33 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".05"/><path d="m108 132 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".25"/><path d="m178 102 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".05"/><path d="m248 72 61-26 47 20-61 26Z" fill="currentColor" fill-opacity=".25"/></g><path d="m65 113v20m90 19v20m201-100v20" stroke="currentColor" opacity=".3"/></g><text x="340" y="36" text-anchor="middle">CLOUD MODEL</text><text x="340" y="385" text-anchor="middle">CONNECTED SPACES / ILLUSTRATIVE OCCUPANCY</text></svg>
+                    <span class="visual-bottomline"><span>SENSORS → MQTT → DIGITAL TWIN</span><span class="visual-arrow" aria-hidden="true">↗</span></span>
+                </button>
+                <div class="project-info"><p class="eyebrow project-category">03 / Internet of things</p><h3 id="parking-title">A digital view of<br><em>the real world.</em></h3><p>A cloud-connected parking digital twin that turns live sensor data into a view of space availability, with a foundation for monitoring patterns and demand.</p><ul class="project-tags" aria-label="Technologies"><li>ESP8266</li><li>MQTT</li><li>AWS IoT</li></ul><button class="text-link project-open" type="button" data-project="parking">Inside the project <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <div class="work-end"><span>Always exploring. Always building.</span><a class="text-link" href="https://github.com/Chiragd42" target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">↗</span></a></div>
+        </section>
 
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="contact-info portfolio-info-card">
-                                <h2>Contact Info</h2>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-ios-telephone"></i></div>
-                                    <div class="col-9"><a href="tel:+919403640853">+91 9403640853</a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-at"></i></div>
-                                    <div class="col-9"><a href="mailto:chiragdabhere@gmail.com">chiragdabhere@gmail.com</a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-social-linkedin"></i></div>
-                                    <div class="col-9"><a href="https://www.linkedin.com/in/chirag-dabhere-7261251ba" target="_blank">Chirag Dabhere</a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-social-github"></i></div>
-                                    <div class="col-9"><a href="https://github.com/Chiragd42" target="_blank">Chiragd42</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hobbies group" id="hobbies-group">
-                    <div class="heading">
-                        <h2 class="text-center">Hobbies</h2>
-                    </div>
-                    <p class="text-center text-muted">I like to Sleep and Code. Seprately of Course</p>
-                </div>
+        <section class="about section-space" id="about" aria-labelledby="about-title"><div class="wrap about-layout">
+            <figure class="portrait-study reveal"><div class="portrait-frame"><img src="assets/images/chirag-fire.jpg" alt="Chirag Dabhere wearing a black suit and sunglasses." width="341" height="512" loading="lazy"></div><figcaption><span>THE PERSON BEHIND THE PROJECTS</span><span>CD / 01</span></figcaption><span class="portrait-cross" aria-hidden="true">✳</span></figure>
+            <div class="about-copy reveal"><p class="eyebrow"><span class="section-index">II</span> A little about me</p><h2 id="about-title">A builder.<br>A thinker.<br><em>Always a student.</em></h2><p class="about-lead">Good engineering starts with a better question.</p><p>I’m a full-stack developer and machine learning enthusiast with a background in electronics and telecommunication. I’m drawn to the places where disciplines meet: software that senses, systems that learn, and machines that respond to people.</p><p>My work spans web experiences, computer vision, connected devices, and human–robot interaction. Across all of it, the goal stays the same: make complex things feel intuitive.</p><a class="text-link" href="#contact">Let’s exchange ideas <span aria-hidden="true">↗</span></a></div>
+        </div></section>
+
+        <section class="expertise section-space wrap" id="expertise" aria-labelledby="expertise-title">
+            <div class="section-intro reveal"><div><p class="eyebrow"><span class="section-index">III</span> The foundations</p><h2 id="expertise-title">A versatile <em>toolkit.</em></h2></div><p class="section-description">The tools change. The curiosity stays.</p></div>
+            <div class="expertise-list reveal">
+                <div class="expertise-row"><span class="expertise-number">01</span><h3>Robotics & systems</h3><p>ROS 2 <span>·</span> C++ <span>·</span> Motion capture <span>·</span> IoT</p><span class="expertise-symbol" aria-hidden="true">⌘</span></div>
+                <div class="expertise-row"><span class="expertise-number">02</span><h3>Machine intelligence</h3><p>Python <span>·</span> TensorFlow <span>·</span> PyTorch <span>·</span> OpenCV</p><span class="expertise-symbol" aria-hidden="true">✳</span></div>
+                <div class="expertise-row"><span class="expertise-number">03</span><h3>Digital experiences</h3><p>JavaScript <span>·</span> HTML & CSS <span>·</span> Node.js <span>·</span> Express</p><span class="expertise-symbol" aria-hidden="true">⌁</span></div>
+                <div class="expertise-row"><span class="expertise-number">04</span><h3>Data & connections</h3><p>SQL <span>·</span> MongoDB <span>·</span> MQTT <span>·</span> AWS</p><span class="expertise-symbol" aria-hidden="true">⊕</span></div>
             </div>
+            <div class="education-layout reveal"><div><p class="eyebrow">The formal chapters</p><h3>Built on a<br><em>solid foundation.</em></h3></div><div class="education-list"><article><span class="education-period">2019 — 2023</span><div><h4>B.E. Electronics & Telecommunication</h4><p>Sinhgad College of Engineering, Pune</p></div></article><article><span class="education-period">2017 — 2019</span><div><h4>Intermediate Education</h4><p>Velociity Junior College</p></div></article></div></div>
         </section>
+        <section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner">
+            <div class="contact-topline"><p class="eyebrow"><span class="section-index">IV</span> The next chapter</p><span>GOOD THINGS BEGIN WITH A CONVERSATION.</span></div>
+            <div class="contact-main reveal"><h2 id="contact-title">Let’s build<br>something <em>that matters.</em></h2><a class="contact-orbit" href="mailto:chiragdabhere@gmail.com" aria-label="Email Chirag Dabhere"><span aria-hidden="true">↗</span></a></div>
+            <div class="contact-bottom"><div><a class="contact-email" href="mailto:chiragdabhere@gmail.com">chiragdabhere@gmail.com</a><button class="copy-email" type="button" data-copy-email aria-label="Copy email address"><span class="sr-only" data-copy-label>Copy email</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg></button><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></div><div class="contact-socials"><a href="https://github.com/Chiragd42" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/chirag-dabhere-7261251ba" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+        </div></section>
     </main>
-    <footer class="page-footer">
-        <div class="container">
-            <div class="social-icons"><a href="https://www.linkedin.com/in/chirag-dabhere-7261251ba" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://www.instagram.com/ig_forsyth/" target = "_blank"><i class="icon ion-social-instagram-outline"></i></a><a href="https://www.github.com/Chiragd42/" target = "_blank""><i class="icon ion-social-github"></i></a></div>
-        </div>
-    </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
-    <script src="assets/js/theme.js"></script>
-                           
+    <footer class="site-footer wrap"><a class="footer-signature" href="#home" aria-label="Back to top">Chirag Dabhere<span>·</span></a><span>© <span id="year">2026</span> / BUILT WITH CURIOSITY</span><a href="#home">BACK TO TOP <span aria-hidden="true">↑</span></a></footer>
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><div class="dialog-topline"><span id="dialog-index"></span><button class="dialog-close" id="dialog-close" type="button" aria-label="Close project details">Close <span aria-hidden="true">×</span></button></div><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="dialog-intro" id="dialog-intro"></p><div id="dialog-body"></div><a class="button button-dark" id="dialog-contact" href="mailto:chiragdabhere@gmail.com">Talk about this project <span aria-hidden="true">↗</span></a></div></dialog>
 </body>
-
 </html>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
