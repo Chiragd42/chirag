@@ -141,6 +141,34 @@
   window.addEventListener('hashchange', () => renderPage(true));
   renderPage();
 
+  // A brief ripple follows the pointer across the headline and settles on exit.
+  const headline = document.querySelector('.hero h1');
+  const letters = [];
+  for (const word of headline.children) {
+    const chars = [...word.textContent];
+    word.replaceChildren();
+    for (const char of chars) {
+      const letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.textContent = char;
+      word.append(letter);
+      letters.push(letter);
+    }
+  }
+  const motion = matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)');
+  headline.addEventListener('pointermove', event => {
+    if (!motion.matches) return;
+    const left = event.clientX - headline.getBoundingClientRect().left;
+    for (const letter of letters) {
+      const distance = left - letter.offsetLeft - letter.offsetWidth / 2;
+      const influence = Math.max(0, 1 - Math.abs(distance) / 100);
+      letter.style.transform = 'translateY(' + (-11 * influence) + 'px) rotate(' + (distance * influence * .16) + 'deg)';
+    }
+  });
+  headline.addEventListener('pointerleave', () => {
+    letters.forEach(letter => letter.style.removeProperty('transform'));
+  });
+
   let clearStatus;
   document.getElementById('copy').addEventListener('click', async () => {
     const status = document.getElementById('copy-status');
