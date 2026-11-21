@@ -77,4 +77,24 @@ article>p:not([class]),.about-sheet p{max-width:38em;font-size:clamp(16px,1.4vw,
 @media(max-width:390px){.brand{font-size:13px;gap:4px}.brand img{width:21px;height:24px}nav{gap:9px}nav a{font-size:10px}.address{font-size:11px}}
 @media(max-height:560px) and (min-width:701px){.inner{padding-block:8px}.inner h2{font-size:clamp(32px,4vw,62px)}.tool-list>div{padding:.55em 0}.project-art{height:48vh}}
 @media(max-height:590px) and (max-width:700px){.inner{padding-block:8px}.project-art,.about-sheet img{display:none}.inner h2{font-size:32px}.hero h1{font-size:min(12vw,13vh)}.hero-type{top:36%}footer{height:50px}}
+.project-index {
+  align-content: center;
+  grid-template-rows: auto auto;
+  gap: clamp(18px, 4vh, 48px);
+}
+.project-index h2 { border-top: 1px solid var(--rule); padding-top: .22em; }
+.project-gallery {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+  padding: 0;
+  margin: 0;
+}
+.project-preview { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+.project-preview .project-art { display: block; grid-column: 1 / -1; height: min(30vh, 18vw); }
+.preview-caption { display: grid; gap: 4px; }
+.preview-caption small { color: #595955; }
+.preview-caption strong { font-size: clamp(20px, 2.3vw, 42px); font-weight: 400; letter-spacing: -.05em; line-height: 1.08; }
+.preview-arrow { color: var(--blue); align-self: end; font-size: 22px; }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.letter{transform:none!important}}
