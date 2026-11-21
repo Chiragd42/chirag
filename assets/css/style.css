@@ -97,4 +97,15 @@ article>p:not([class]),.about-sheet p{max-width:38em;font-size:clamp(16px,1.4vw,
 .preview-caption small { color: #595955; }
 .preview-caption strong { font-size: clamp(20px, 2.3vw, 42px); font-weight: 400; letter-spacing: -.05em; line-height: 1.08; }
 .preview-arrow { color: var(--blue); align-self: end; font-size: 22px; }
+@media (max-width: 700px) {
+  .project-gallery { grid-template-columns: 1fr; gap: 0; }
+  .project-preview {
+    grid-template-columns: clamp(60px, 19vw, 100px) 1fr auto;
+    align-items: center;
+    padding-block: clamp(8px, 1.6vh, 14px);
+    border-top: 1px solid var(--rule);
+  }
+  .project-preview .project-art { grid-column: auto; height: clamp(52px, 9vh, 78px); }
+  .preview-arrow { align-self: center; font-size: 18px; }
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.letter{transform:none!important}}
