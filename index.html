@@ -8,14 +8,14 @@
   <title>Chirag Dabhere — Portfolio</title>
   <link rel="icon" href="assets/images/cd-mark.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/instrument-sans-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js?v=studio-1" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=projects-1">
+  <script src="assets/js/main.js?v=projects-1" defer></script>
 </head>
 <body>
   <header>
     <a class="brand" href="#home" aria-label="Chirag Dabhere, home"><img src="assets/images/cd-mark.svg" alt="" width="32" height="32"><span>Chirag<br>Dabhere</span></a>
     <nav aria-label="Portfolio">
-      <a href="#work">Work</a><a href="#expertise">Toolkit</a><a href="#about">About</a><a class="contact-link" href="#contact">Contact <span aria-hidden="true">→</span></a>
+      <a href="#projects">Projects</a><a href="#expertise">Toolkit</a><a href="#about">About</a><a class="contact-link" href="#contact">Contact <span aria-hidden="true">→</span></a>
     </nav>
   </header>
 
@@ -26,13 +26,24 @@
         <p>Robotics, vision &amp; code</p>
       </div>
       <div class="hero-foot">
-        <a class="work-link" href="#work">Selected<br>work <b aria-hidden="true">↘</b></a>
+        <a class="work-link" href="#projects">Selected<br>projects <b aria-hidden="true">↘</b></a>
         <div class="address"><span>Stuttgart,<br>Germany</span><a href="mailto:chiragdabhere@gmail.com">chiragdabhere@gmail.com</a></div>
       </div>
     </section>
 
+    <section class="page inner project-index" data-page="projects" aria-labelledby="projects-title" hidden>
+      <h2 id="projects-title">Selected projects.</h2>
+      <ul class="project-gallery"></ul>
+      <template id="project-preview">
+        <li><a class="project-preview">
+          <span class="project-art" aria-hidden="true"><canvas></canvas></span>
+          <span class="preview-caption"><small class="kicker"></small> <strong></strong></span>
+          <span class="preview-arrow" aria-hidden="true">↗</span>
+        </a></li>
+      </template>
+    </section>
     <section class="page inner work" data-page="work" aria-label="Selected work" hidden>
-      <div class="section-line"><span>Selected work</span><span id="project-count">01 / 03</span></div>
+      <div class="section-line"><a href="#projects">← All projects</a><span id="project-count">01 / 03</span></div>
       <div class="project-layout">
         <div class="project-art" data-art="teleoperation" aria-hidden="true"><canvas></canvas></div>
         <article><p class="kicker" id="project-area"></p><h2 id="project-title"></h2><p id="project-note"></p><p class="tools" id="project-tools"></p><a class="line-link" id="project-mail" href="mailto:chiragdabhere@gmail.com">Ask about this project ↗</a></article>

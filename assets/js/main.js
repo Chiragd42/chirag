@@ -26,13 +26,14 @@
   };
 
   const pages = [...document.querySelectorAll('[data-page]')];
-  const art = document.querySelector('.project-art');
+  const art = document.querySelector('.work .project-art');
   const canvas = art.querySelector('canvas');
+  const projectFooter = document.querySelector('footer');
   const email = 'chiragdabhere@gmail.com';
   const links = [...document.querySelectorAll('header a, footer a')];
 
   // Each project plate is drawn in the same 400 × 240 coordinate system.
-  function drawPlate() {
+  function drawPlate(canvas) {
     const { width, height } = canvas.getBoundingClientRect();
     if (!width || !height) return;
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -57,7 +58,7 @@
       if (hollow) { ctx.lineWidth = 1.3; ctx.stroke(); }
       else ctx.fill();
     }
-    const key = art.dataset.art;
+    const key = canvas.parentElement.dataset.art;
     ctx.strokeStyle = ctx.fillStyle = key === 'teleoperation' ? '#fff' : '#191918';
     ctx.globalAlpha = .29;
     for (let x = 20; x <= 380; x += 20) {
@@ -109,15 +110,33 @@
     }
   }
 
+  const plateObserver = new ResizeObserver(entries => {
+    entries.forEach(entry => drawPlate(entry.target));
+  });
+  plateObserver.observe(canvas);
+
+  const gallery = document.querySelector('.project-gallery');
+  const preview = document.getElementById('project-preview');
+  for (const [key, project] of Object.entries(projects)) {
+    const item = preview.content.cloneNode(true);
+    item.querySelector('a').href = '#work/' + key;
+    item.querySelector('.project-art').dataset.art = key;
+    item.querySelector('.kicker').textContent = project.area;
+    item.querySelector('strong').textContent = project.title;
+    plateObserver.observe(item.querySelector('canvas'));
+    gallery.append(item);
+  }
+
   function renderPage(moveFocus = false) {
     const [section, slug] = location.hash.slice(1).split('/');
     const active = pages.find(page => page.dataset.page === section) || pages[0];
     const key = Object.hasOwn(projects, slug) ? slug : 'teleoperation';
     const name = active.dataset.page;
     pages.forEach(page => { page.hidden = page !== active; });
+    projectFooter.hidden = name === 'projects';
     links.forEach(link => {
       const current = link.hash === '#' + name ||
-        (name === 'work' && link.hash === '#work/' + key);
+        (name === 'work' && (link.hash === '#projects' || link.hash === '#work/' + key));
       if (current) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
     });
@@ -128,7 +147,7 @@
       }
       document.getElementById('project-mail').href = 'mailto:' + email + '?subject=' + encodeURIComponent(project.title);
       art.dataset.art = key;
-      drawPlate();
+      drawPlate(canvas);
     }
     document.title = (name === 'work' ? projects[key].title : active.querySelector('h2')?.textContent || 'Portfolio') + ' — Chirag Dabhere';
     if (moveFocus) {
@@ -137,7 +156,6 @@
       heading.focus({preventScroll:true});
     }
   }
-  new ResizeObserver(drawPlate).observe(canvas);
   window.addEventListener('hashchange', () => renderPage(true));
   renderPage();
 
