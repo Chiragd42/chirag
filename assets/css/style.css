@@ -10,8 +10,8 @@ a:hover,button:hover{color:var(--blue)}
 [hidden]{display:none!important}
 header,footer{padding-inline:var(--gutter)}
 header{display:grid;grid-template-columns:1fr 4fr;align-items:start;padding-top:clamp(10px,1.5vh,24px);padding-bottom:10px}
-.brand{display:flex;align-items:center;gap:7px;width:fit-content;font-size:15px;line-height:.92;letter-spacing:-.055em}
-.brand img{width:28px;height:28px}
+.brand{display:flex;align-items:center;gap:9px;width:fit-content;font-size:15px;line-height:.92;letter-spacing:-.055em}
+.brand img{width:36px;height:30px}
 nav{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter)}
 nav a{font-size:clamp(12px,1vw,17px);padding-block:7px 3px;text-transform:uppercase;width:fit-content}
 nav a[aria-current],nav a:hover{box-shadow:inset 0 -1px}
@@ -74,7 +74,7 @@ article>p:not([class]),.about-sheet p{max-width:38em;font-size:clamp(16px,1.4vw,
   .about-sheet img{width:90px;height:100px}.tool-list>div{padding:.7em 0}
   .contact-sheet h2{font-size:18vw}
 }
-@media(max-width:390px){.brand{font-size:13px;gap:4px}.brand img{width:21px;height:24px}nav{gap:9px}nav a{font-size:10px}.address{font-size:11px}}
+@media(max-width:390px){.brand{font-size:12px;gap:4px}.brand img{width:24px;height:20px}nav{gap:7px}nav a{font-size:10px}.address{font-size:11px}}
 @media(max-height:560px) and (min-width:701px){.inner{padding-block:8px}.inner h2{font-size:clamp(32px,4vw,62px)}.tool-list>div{padding:.55em 0}.project-art{height:48vh}}
 @media(max-height:590px) and (max-width:700px){.inner{padding-block:8px}.project-art,.about-sheet img{display:none}.inner h2{font-size:32px}.hero h1{font-size:min(12vw,13vh)}.hero-type{top:36%}footer{height:50px}}
 .project-index {
