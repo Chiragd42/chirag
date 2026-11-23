@@ -49,9 +49,11 @@ article h2{margin:.16em 0 .27em}
 article>p:not([class]),.about-sheet p{max-width:38em;font-size:clamp(16px,1.4vw,23px);line-height:1.38;letter-spacing:-.025em}
 .tools{margin:1.4em 0 2em;color:#595955}
 .line-link,#copy{border-bottom:1px solid;padding-bottom:2px;font-size:14px}
+.social-link { display: inline-flex; align-items: center; gap: 8px; }
+.social-link img { width: 18px; height: 18px; flex-shrink: 0; }
 .tool-list>div{padding:1em 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 2fr;gap:1em;line-height:1.35}
 .tool-list dt{text-transform:uppercase;font-size:.8em}
-.about-sheet img{width:auto;max-width:100%;height:min(46vh,34vw);object-fit:cover;filter:grayscale(1)}
+.about-sheet > img{width:auto;max-width:100%;height:min(46vh,34vw);object-fit:cover;filter:grayscale(1)}
 .about-sheet p{margin:.85em 0}
 .contact-sheet{align-self:center}
 .contact-sheet h2{font-size:clamp(60px,10vw,160px)}
@@ -71,12 +73,12 @@ article>p:not([class]),.about-sheet p{max-width:38em;font-size:clamp(16px,1.4vw,
   .project-layout,.text-sheet{grid-template-columns:1fr;gap:clamp(12px,2.4vh,24px)}
   .project-art{height:clamp(90px,25vh,240px)}.inner h2{font-size:clamp(34px,9vw,58px)}
   .tools{margin:.85em 0 1em}
-  .about-sheet img{width:90px;height:100px}.tool-list>div{padding:.7em 0}
+  .about-sheet > img{width:90px;height:100px}.tool-list>div{padding:.7em 0}
   .contact-sheet h2{font-size:18vw}
 }
 @media(max-width:390px){.brand{font-size:12px;gap:4px}.brand img{width:24px;height:20px}nav{gap:7px}nav a{font-size:10px}.address{font-size:11px}}
 @media(max-height:560px) and (min-width:701px){.inner{padding-block:8px}.inner h2{font-size:clamp(32px,4vw,62px)}.tool-list>div{padding:.55em 0}.project-art{height:48vh}}
-@media(max-height:590px) and (max-width:700px){.inner{padding-block:8px}.project-art,.about-sheet img{display:none}.inner h2{font-size:32px}.hero h1{font-size:min(12vw,13vh)}.hero-type{top:36%}footer{height:50px}}
+@media(max-height:590px) and (max-width:700px){.inner{padding-block:8px}.project-art,.about-sheet > img{display:none}.inner h2{font-size:32px}.hero h1{font-size:min(12vw,13vh)}.hero-type{top:36%}footer{height:50px}}
 .project-index {
   align-content: center;
   grid-template-rows: auto auto;
